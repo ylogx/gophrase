@@ -1,11 +1,11 @@
 package pkg
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"net/http"
 	"os"
+	"net/http"
+	"io"
+	"fmt"
+	"bufio"
 	"strings"
 )
 
@@ -13,11 +13,11 @@ const (
 	//Url = "https://github.com/ylogx/english-words/blob/master/words.txt?raw=true"
 	//FileSize = 4862966
 	//FileName = "gophrase_words_all.txt"
-	Url           = "https://github.com/ylogx/english-words/blob/master/words_alpha.txt?raw=true"
-	FileSize      = 4234866
-	FileName      = "/tmp/gophrase_words_alpha.txt"
-	WordMinLength = 3
-	WordMaxLength = 10
+	Url           = "https://github.com/ylogx/english-words/blob/master/20k.txt?raw=true"
+	FileSize      = 155418
+	FileName      = "/tmp/20k.txt"
+	WordMinLength = 1   //3
+	WordMaxLength = 100 //10
 )
 
 type Vocabulary interface {
@@ -84,7 +84,7 @@ func (e *english) ensureWordListExists() error {
 	}
 	fileInfo, err := os.Stat(e.filename)
 	if err != nil || fileInfo.Size() != FileSize {
-		fmt.Printf("Downloading file\n")
+		fmt.Printf("Downloading file (this will only take few seconds)\n")
 		err = DownloadFile(e.filename, Url)
 		if err != nil {
 			return err
@@ -111,6 +111,7 @@ func (e *english) readWordsFromFile() {
 		}
 		word = string(word)
 		word = strings.TrimSuffix(word, "\r\n")
+		word = strings.TrimSuffix(word, "\n")
 		if e.WordMinLength <= len(word) && len(word) <= e.WordMaxLength {
 			e.wordsData = append(e.wordsData, word)
 		}
