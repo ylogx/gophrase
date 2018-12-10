@@ -13,9 +13,9 @@ const (
 	//Url = "https://github.com/ylogx/english-words/blob/master/words.txt?raw=true"
 	//FileSize = 4862966
 	//FileName = "gophrase_words_all.txt"
-	Url      = "https://github.com/ylogx/english-words/blob/master/words_alpha.txt?raw=true"
-	FileSize = 4234866
-	FileName = "gophrase_words_alpha.txt"
+	Url       = "https://github.com/ylogx/english-words/blob/master/words_alpha.txt?raw=true"
+	FileSize  = 4234866
+	FileName  = "gophrase_words_alpha.txt"
 	MinLength = 3
 	MaxLength = 10
 )

@@ -9,7 +9,7 @@ func GeneratePassphrase(n int) string {
 	words := ReadWords()
 	wLen := len(words)
 	output := ""
-	for i:=0; i<n; i++ {
+	for i := 0; i < n; i++ {
 		index := rand.Intn(wLen)
 		//fmt.Printf("Index: %d %q\n", index, words[i])
 		output += string(words[index])
