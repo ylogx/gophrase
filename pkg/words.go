@@ -13,9 +13,12 @@ const (
 	//Url = "https://github.com/ylogx/english-words/blob/master/words.txt?raw=true"
 	//FileSize = 4862966
 	//FileName = "gophrase_words_all.txt"
-	Url           = "https://github.com/ylogx/english-words/blob/master/20k.txt?raw=true"
-	FileSize      = 155418
-	FileName      = "/tmp/20k.txt"
+	//Url           = "https://github.com/ylogx/english-words/blob/master/20k.txt?raw=true"
+	//FileSize      = 155418
+	//FileName      = "/tmp/20k.txt"
+	Url           = "https://github.com/ylogx/english-words/blob/master/google-10000-english-no-swears.txt?raw=true"
+	FileSize      = 75185
+	FileName      = "/tmp/google-10000-english-no-swears.txt"
 	WordMinLength = 1   //3
 	WordMaxLength = 100 //10
 )
