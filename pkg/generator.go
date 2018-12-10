@@ -1,15 +1,22 @@
 package pkg
 
-const Url = "https://github.com/ylogx/english-words/blob/master/words.txt?raw=true"
+import (
+	"fmt"
+	"math/rand"
+)
 
-func downloadListToFile(url, filename string) {
-
-}
-
-func readWordList(filename string) {
-
-}
-
-func GeneratePassphrase() string {
-	return ""
+func GeneratePassphrase(n int) string {
+	words := ReadWords()
+	wLen := len(words)
+	output := ""
+	for i:=0; i<n; i++ {
+		index := rand.Intn(wLen)
+		//fmt.Printf("Index: %d %q\n", index, words[i])
+		output += string(words[index])
+		if i != n-1 {
+			output += " "
+		}
+		//fmt.Printf("Output: %s\n", output)
+	}
+	return fmt.Sprintf("%s", output)
 }
