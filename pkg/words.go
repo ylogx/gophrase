@@ -1,11 +1,11 @@
 package pkg
 
 import (
-	"net/http"
-	"io"
-	"os"
-	"fmt"
 	"bufio"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
 	"strings"
 )
 
@@ -15,7 +15,7 @@ const (
 	//FileName = "gophrase_words_all.txt"
 	Url           = "https://github.com/ylogx/english-words/blob/master/words_alpha.txt?raw=true"
 	FileSize      = 4234866
-	FileName      = "gophrase_words_alpha.txt"
+	FileName      = "/tmp/gophrase_words_alpha.txt"
 	WordMinLength = 3
 	WordMaxLength = 10
 )
@@ -26,16 +26,16 @@ type Vocabulary interface {
 }
 
 type english struct {
-	filename string
-	wordsData []string
+	filename      string
+	wordsData     []string
 	WordMinLength int
 	WordMaxLength int
 }
 
 func NewEnglishVocabulary(filename string) Vocabulary {
 	return &english{
-		filename: filename,
-		wordsData: []string{},
+		filename:      filename,
+		wordsData:     []string{},
 		WordMinLength: WordMinLength,
 		WordMaxLength: WordMaxLength,
 	}
