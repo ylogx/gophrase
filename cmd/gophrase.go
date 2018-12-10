@@ -17,6 +17,8 @@ func main() {
 	flag.Parse()
 
 	rand.Seed(time.Now().UTC().UnixNano())
-	passphrase := pkg.GeneratePassphrase(*numWords)
+
+	englishVocab := pkg.NewEnglishVocabulary(pkg.FileName)
+	passphrase := pkg.GeneratePassphrase(*numWords, englishVocab)
 	fmt.Printf("Passphrase with %d words and length of %d chars:\n%s\n", *numWords, len(passphrase), passphrase)
 }

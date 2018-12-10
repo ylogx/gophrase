@@ -5,9 +5,12 @@ import (
 	"math/rand"
 )
 
-func GeneratePassphrase(n int) string {
-	words := ReadWords()
-	wLen := len(words)
+func GeneratePassphrase(n int, vocab Vocabulary) string {
+	words := vocab.words()
+	wLen := vocab.size()
+	if wLen <= 0 {
+		panic("No word list found!")
+	}
 	output := ""
 	for i := 0; i < n; i++ {
 		index := rand.Intn(wLen)

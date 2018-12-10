@@ -20,6 +20,37 @@ const (
 	WordMaxLength = 10
 )
 
+type Vocabulary interface {
+	words() []string
+	size() int
+}
+
+type english struct {
+	filename string
+	wordsData []string
+	WordMinLength int
+	WordMaxLength int
+}
+
+func NewEnglishVocabulary(filename string) Vocabulary {
+	return &english{
+		filename: filename,
+		wordsData: []string{},
+		WordMinLength: WordMinLength,
+		WordMaxLength: WordMaxLength,
+	}
+}
+
+func (e *english) words() []string {
+	e.ensureWordListExists()
+	return e.wordsData
+}
+
+func (e *english) size() int {
+	e.ensureWordListExists()
+	return len(e.wordsData)
+}
+
 // DownloadFile will download a url to a local file. It's efficient because it will
 // write as it downloads and not load the whole file into memory.
 func DownloadFile(filepath string, url string) error {
@@ -47,11 +78,14 @@ func DownloadFile(filepath string, url string) error {
 }
 
 // Knows the url and corresponding file size
-func ensureWordListExists(filename string) error {
-	fileInfo, err := os.Stat(filename)
+func (e *english) ensureWordListExists() error {
+	if len(e.wordsData) > 0 {
+		return nil
+	}
+	fileInfo, err := os.Stat(e.filename)
 	if err != nil || fileInfo.Size() != FileSize {
 		fmt.Printf("Downloading file\n")
-		err = DownloadFile(filename, Url)
+		err = DownloadFile(e.filename, Url)
 		if err != nil {
 			return err
 		}
@@ -61,17 +95,12 @@ func ensureWordListExists(filename string) error {
 	return nil
 }
 
-func ReadWords() []string {
-	err := ensureWordListExists(FileName)
-	if err != nil {
-		panic(err)
-	}
-	file, err := os.Open(FileName)
+func (e *english) readWordsFromFile() {
+	file, err := os.Open(e.filename)
 	if err != nil {
 		panic(err)
 	}
 	reader := bufio.NewReader(file)
-	var words []string
 	for {
 		//word, err := reader.ReadString(10) // 0x0A separator = newline
 		word, err := reader.ReadString(0x0A)
@@ -82,13 +111,12 @@ func ReadWords() []string {
 		}
 		word = string(word)
 		word = strings.TrimSuffix(word, "\r\n")
-		if WordMinLength <= len(word) && len(word) <= WordMaxLength {
-			words = append(words, word)
+		if e.WordMinLength <= len(word) && len(word) <= e.WordMaxLength {
+			e.wordsData = append(e.wordsData, word)
 		}
 	}
 	//words, err := ioutil.ReadFile(FileName)
 	if err != nil {
 		panic(err)
 	}
-	return words
 }
