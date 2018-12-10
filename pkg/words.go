@@ -13,11 +13,11 @@ const (
 	//Url = "https://github.com/ylogx/english-words/blob/master/words.txt?raw=true"
 	//FileSize = 4862966
 	//FileName = "gophrase_words_all.txt"
-	Url       = "https://github.com/ylogx/english-words/blob/master/words_alpha.txt?raw=true"
-	FileSize  = 4234866
-	FileName  = "gophrase_words_alpha.txt"
-	MinLength = 3
-	MaxLength = 10
+	Url           = "https://github.com/ylogx/english-words/blob/master/words_alpha.txt?raw=true"
+	FileSize      = 4234866
+	FileName      = "gophrase_words_alpha.txt"
+	WordMinLength = 3
+	WordMaxLength = 10
 )
 
 // DownloadFile will download a url to a local file. It's efficient because it will
@@ -82,7 +82,7 @@ func ReadWords() []string {
 		}
 		word = string(word)
 		word = strings.TrimSuffix(word, "\r\n")
-		if MinLength <= len(word) && len(word) <= MaxLength {
+		if WordMinLength <= len(word) && len(word) <= WordMaxLength {
 			words = append(words, word)
 		}
 	}
