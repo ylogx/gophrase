@@ -5,12 +5,20 @@ GoPhrase
 
 A random passphrase generator.
 
+### Why?
+
+A password such as "Tr0ub4dor&3" is bad because it is easy for password cracking software and hard for humans to remember, leading to insecure practices like writing the password down on a post-it attached to the monitor.
+
+On the other hand, a password such as "correcthorsebatterystaple" is hard for computers to guess due to having more entropy but quite easy for humans to remember.
+
+<img src="https://imgs.xkcd.com/comics/password_strength.png" alt="xkcd password strength" width="600"/>
+
+See [xkcd explained][xkcd-explained] for more details
+
 ### Usage
 
-![usage sshot][usage-sshot]
-
-
-[usage-sshot]: https://i.imgur.com/o8WUS0o.png
+<!-- ![usage sshot][usage-sshot] -->
+<img src="https://i.imgur.com/o8WUS0o.png" alt="usage sshot" width="400"/>
 
 ### Installation
 
@@ -28,3 +36,6 @@ install gophrase /usr/local/bin
 git pull https://github.com/ylogx/gophrase
 make build
 ```
+
+[usage-sshot]: https://i.imgur.com/o8WUS0o.png
+[xkcd-explained]: https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength
