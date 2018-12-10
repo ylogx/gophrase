@@ -18,9 +18,9 @@ A random passphrase generator.
 Download binaries from release page and copy in `/usr/local/bin`
 
 ```bash
-wget https://github.com/ylogx/gophrase/releases/download/v0.0.1/gophrase.darwin
-#wget https://github.com/ylogx/gophrase/releases/download/v0.0.1/gophrase.amd64
-install gophrase.darwin /usr/local/bin
+wget -O gophrase https://github.com/ylogx/gophrase/releases/download/v0.0.1/gophrase-v0.0.1.darwin.amd64
+#wget -O gophrase https://github.com/ylogx/gophrase/releases/download/v0.0.1/gophrase-v0.0.1.linux.amd64
+install gophrase /usr/local/bin
 ```
 
 ##### From source
