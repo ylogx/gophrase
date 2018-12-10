@@ -23,3 +23,18 @@ func Test_ensureWordListExists_DataExists_DoNoting(t *testing.T) {
 		}
 	}
 }
+
+func Test_ensureWordListExists_DataExists_GiveCorrectSize(t *testing.T) {
+	inputVocab := []string{"hgfe", "dcba"}
+	vocab := &english{wordsData: inputVocab}
+
+	err := vocab.ensureWordListExists()
+	size := vocab.size()
+
+	if err != nil {
+		t.Fatalf("Expected error to be nil but got %q", err)
+	}
+	if size != len(inputVocab) {
+		t.Fatalf("Expected %d vocab word but got %d", len(inputVocab), len(words))
+	}
+}

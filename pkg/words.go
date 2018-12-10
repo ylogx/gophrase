@@ -91,7 +91,7 @@ func (e *english) ensureWordListExists() error {
 		}
 		fmt.Printf("Finished Downloading Successfully\n")
 	}
-
+	e.readWordsFromFile()
 	return nil
 }
 
