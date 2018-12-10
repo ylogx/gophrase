@@ -6,6 +6,9 @@ gophrase_words_alpha.txt
 # Binary
 main
 gophrase
+*.amd64
+*.amd64.exe
+binaries/
 
 # Binaries for programs and plugins
 *.exe
