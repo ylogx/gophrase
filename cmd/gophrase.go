@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	DefaultLength = 6
+	DefaultLength = 4
 )
 
 func main() {
