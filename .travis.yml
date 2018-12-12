@@ -1,6 +1,5 @@
 language: go
 go:
-- 1.10
 - 1.11
 - 1.x
 - release
@@ -13,3 +12,8 @@ script:
 - make test
 - make build
 - make run
+- make build_binaries
+- cat binaries/sha256sum.txt
+- ./$(find binaries -name '*.linux.amd64')
+- ./$(find binaries -name '*.linux.amd64') -n 6
+- ./$(find binaries -name '*.linux.amd64') --help || true
