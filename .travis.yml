@@ -13,17 +13,23 @@ install:
   - export GO111MODULE=on; go get || go get -t ./...
   - go get golang.org/x/lint/golint
   - go get github.com/gordonklaus/ineffassign
+stages:
+  - name: lint
+    if: env(GIMME_OS) = linux
+  - name: test
+    if: env(GIMME_OS) = linux
+  - name: build
+  - name: run
+    if: env(GIMME_OS) = linux
 
 jobs:
   include:
   - stage: lint
-    if: env(GIMME_OS) = linux
     script:
       - diff <(echo -n) <(gofmt -s -d .)  # Lint Check - Code Formatting
       - go vet ./...
       - golint ./... || true
   - stage: test
-    if: env(GIMME_OS) = linux
     script:
       - ineffassign .  # Lint Check - Unused assignment
       - make test
@@ -33,7 +39,6 @@ jobs:
       - make build_binaries
       - cat binaries/sha256sum.txt
   - stage: run
-    if: env(GIMME_OS) = linux
     script:
       - make run
       - ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*")
