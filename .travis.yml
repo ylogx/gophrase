@@ -17,6 +17,7 @@ install:
 jobs:
   include:
   - stage: lint
+    if: env(GIMME_OS) = linux
     script:
       - diff <(echo -n) <(gofmt -s -d .)  # Lint Check - Code Formatting
       - go vet ./...
