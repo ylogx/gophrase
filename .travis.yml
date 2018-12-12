@@ -1,9 +1,13 @@
 language: go
 go:
- - 1.10
- - 1.11
- - release
- - tip
+- 1.10
+- 1.11
+- 1.x
+- release
+- tip
+
+install:
+- export GO111MODULE=on; go get || go get -t ./...
 
 script:
 - make test

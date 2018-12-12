@@ -35,6 +35,6 @@ func Test_ensureWordListExists_DataExists_GiveCorrectSize(t *testing.T) {
 		t.Fatalf("Expected error to be nil but got %q", err)
 	}
 	if size != len(inputVocab) {
-		t.Fatalf("Expected %d vocab word but got %d", len(inputVocab), len(words))
+		t.Fatalf("Expected %d vocab word but got %d", len(inputVocab), size)
 	}
 }
