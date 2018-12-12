@@ -1,11 +1,11 @@
 package pkg
 
 import (
-	"os"
-	"net/http"
-	"io"
-	"fmt"
 	"bufio"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
 	"strings"
 )
 

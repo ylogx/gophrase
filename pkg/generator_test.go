@@ -1,12 +1,11 @@
 package pkg
 
 import (
-	"testing"
 	"math/rand"
-	)
+	"testing"
+)
 
 var vocab = &english{wordsData: []string{"abcd", "efgh", "ijkl", "mnop"}}
-
 
 func TestEmptyPassphrase(t *testing.T) {
 	rand.Seed(26)

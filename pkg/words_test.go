@@ -15,7 +15,7 @@ func Test_ensureWordListExists_DataExists_DoNoting(t *testing.T) {
 	if len(inputVocab) != len(words) {
 		t.Fatalf("Expected %d vocab word but got %d", len(inputVocab), len(words))
 	}
-	for i:=0; i<len(words); i++ {
+	for i := 0; i < len(words); i++ {
 		word, inputVocabWord := words[i], inputVocab[i]
 		if word != inputVocabWord {
 			t.Fatalf("Expected vocab word %q but got %q", inputVocab, words)

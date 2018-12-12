@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/ylogx/gophrase/pkg"
-	"fmt"
 	"flag"
+	"fmt"
+	"github.com/ylogx/gophrase/pkg"
 	"math/rand"
 	"time"
 )
