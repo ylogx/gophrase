@@ -2,8 +2,9 @@ language: go
 go:
 - 1.11
 - 1.x
-- release
+- stable
 - tip
+- master
 
 install:
 - export GO111MODULE=on; go get || go get -t ./...
