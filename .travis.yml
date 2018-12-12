@@ -18,13 +18,13 @@ install:
 
 script:
 - diff <(echo -n) <(gofmt -s -d .)  # Lint Check - Code Formatting
-- ineffassign .  # Lint Check - Unused assignment
+- [[ "${GIMME_OS}" == "linux" ]] && ineffassign .  # Lint Check - Unused assignment
 - go vet ./...
-- make test
+- [[ "${GIMME_OS}" == "linux" ]] && make test
 - make build
-- make run
+- [[ "${GIMME_OS}" == "linux" ]] && make run
 - make build_binaries
 - cat binaries/sha256sum.txt
-- ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*")
-- ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*") -n 6
-- ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*") --help || true
+- [[ "${GIMME_OS}" == "linux" ]] && ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*")
+- [[ "${GIMME_OS}" == "linux" ]] && ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*") -n 6
+- [[ "${GIMME_OS}" == "linux" ]] && ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*") --help || true
