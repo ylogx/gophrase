@@ -20,6 +20,7 @@ jobs:
     script:
       - diff <(echo -n) <(gofmt -s -d .)  # Lint Check - Code Formatting
       - go vet ./...
+      - golint ./... || true
   - stage: test
     if: env(GIMME_OS) = linux
     script:
