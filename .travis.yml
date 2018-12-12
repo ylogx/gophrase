@@ -6,6 +6,11 @@ go:
 - tip
 - master
 
+env:
+- GIMME_OS=linux GIMME_ARCH=amd64
+- GIMME_OS=darwin GIMME_ARCH=amd64
+- GIMME_OS=windows GIMME_ARCH=amd64
+
 install:
 - export GO111MODULE=on; go get || go get -t ./...
 - go get golang.org/x/lint/golint
@@ -20,6 +25,6 @@ script:
 - make run
 - make build_binaries
 - cat binaries/sha256sum.txt
-- ./$(find binaries -name '*.linux.amd64')
-- ./$(find binaries -name '*.linux.amd64') -n 6
-- ./$(find binaries -name '*.linux.amd64') --help || true
+- ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*")
+- ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*") -n 6
+- ./$(find binaries -name "*.${GIMME_OS}.${GIMME_ARCH}*") --help || true
