@@ -7,8 +7,13 @@ go:
 
 install:
 - export GO111MODULE=on; go get || go get -t ./...
+- go get golang.org/x/lint/golint
+- go get github.com/gordonklaus/ineffassign
 
 script:
+- diff <(echo -n) <(gofmt -s -d .)  # Lint Check - Code Formatting
+- ineffassign .  # Lint Check - Unused assignment
+- go vet ./...
 - make test
 - make build
 - make run
