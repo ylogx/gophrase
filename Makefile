@@ -27,4 +27,4 @@ build_binaries:
 
 setup_repo:
 	mkdir -p ~/.cache/go/src/github.com/ylogx/
-	ln -s $$(pwd) ~/.cache/go/src/github.com/ylogx/
+	ln -sf $$(pwd) ~/.cache/go/src/github.com/ylogx/
