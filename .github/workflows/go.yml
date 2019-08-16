@@ -26,12 +26,36 @@ jobs:
     - name: Unit Test
       run: make test
 
+    - name: Lint
+      run: |
+        export GO111MODULE=on; go get || go get -t ./...
+        go get golang.org/x/lint/golint
+        go get github.com/gordonklaus/ineffassign
+
+
+        diff <(echo -n) <(gofmt -s -d .)  # Lint Check - Code Formatting
+        go vet ./...
+        golint ./... || true
+
+        ineffassign .  # Lint Check - Unused Assignment
+        make test
+
     - name: Build
       run: go build -v ./cmd/gophrase.go
+
+    - name: Run
+      run: |
+        make run
+        rm -f ./gophrase && make build && ./gophrase
 
     - name: Install
       run: make install || true
 
-    - name: Run
-      run: make build && ./gophrase
+    - name: Build Cross Platform Binaries
+      run: |
+        make build_binaries
+        ls -ltr binaries/
+        ./$(find binaries -name "*.linux.amd64")
+        ./$(find binaries -name "*.linux.amd64") -n 6
+        ./$(find binaries -name "*.linux.amd64") --help || true
 
