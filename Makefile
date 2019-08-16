@@ -4,7 +4,7 @@ test:
 run:
 	go run cmd/gophrase.go
 
-build:
+build: #setup_repo
 	go build cmd/gophrase.go
 
 build_binaries:
@@ -24,3 +24,7 @@ build_binaries:
 #		&& echo "Packaging static files" \
 #		&& /go/bin/packr --verbose --input $${DEPLOY_FILENAME} \
 #		&& /go/bin/packr clean
+
+setup_repo:
+	mkdir -p ~/.cache/go/src/github.com/ylogx/
+	ln -s $$(pwd) ~/.cache/go/src/github.com/ylogx/
