@@ -35,9 +35,9 @@ jobs:
 
         diff <(echo -n) <(gofmt -s -d .)  # Lint Check - Code Formatting
         go vet ./...
-        golint ./... || true
+        ~/go/bin/golint ./... || true
 
-        ineffassign .  # Lint Check - Unused Assignment
+        ~/go/bin/ineffassign .  # Lint Check - Unused Assignment
         make test
 
     - name: Build
