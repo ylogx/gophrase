@@ -7,6 +7,13 @@ run:
 build: #setup_repo
 	go build cmd/gophrase.go
 
+install: build
+	install -pv gophrase ~/.local/bin
+
+setup_repo:
+	mkdir -p ~/.cache/go/src/github.com/ylogx/
+	ln -sf $$(pwd) ~/.cache/go/src/github.com/ylogx/
+
 build_binaries:
 	set -eux \
 		&& export BUILD_NUMBER='v0.0.1' \
@@ -24,7 +31,3 @@ build_binaries:
 #		&& echo "Packaging static files" \
 #		&& /go/bin/packr --verbose --input $${DEPLOY_FILENAME} \
 #		&& /go/bin/packr clean
-
-setup_repo:
-	mkdir -p ~/.cache/go/src/github.com/ylogx/
-	ln -sf $$(pwd) ~/.cache/go/src/github.com/ylogx/
