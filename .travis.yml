@@ -37,6 +37,7 @@ jobs:
     script:
       - make build
       - make build_binaries
+      - find binaries -type f | xargs ls -ltrh
       - cat binaries/sha256sum.txt
   - stage: run
     script:

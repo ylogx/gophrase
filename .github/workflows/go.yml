@@ -54,7 +54,8 @@ jobs:
     - name: Build Cross Platform Binaries
       run: |
         make build_binaries
-        ls -ltr binaries/
+        find binaries -type f | xargs ls -ltrh
+        cat binaries/sha256sum.txt
         ./$(find binaries -name "*.linux.amd64")
         ./$(find binaries -name "*.linux.amd64") -n 6
         ./$(find binaries -name "*.linux.amd64") --help || true
