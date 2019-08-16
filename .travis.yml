@@ -2,7 +2,7 @@ language: go
 go:
   #- 1.x
   - stable
-  - tip
+  #- tip
 
 #env:
 #  - GIMME_OS=linux GIMME_ARCH=amd64
