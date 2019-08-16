@@ -34,7 +34,10 @@ install gophrase /usr/local/bin
 ##### From source
 ```bash
 git pull https://github.com/ylogx/gophrase
-make build
+make install
+
+# Ensure ~/.local/bin is in $PATH (i.e `[ -d $HOME/.local/bin ] && export PATH=$PATH:$HOME/.local/bin`) or use following command:
+make build && install -pv gophrase /usr/local/bin
 ```
 
 [usage-sshot]: https://i.imgur.com/o8WUS0o.png
