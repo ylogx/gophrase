@@ -1,7 +1,7 @@
 GoPhrase
 ========
 
-[![Build Status](https://travis-ci.com/ylogx/gophrase.svg?branch=master)](https://travis-ci.com/ylogx/gophrase)
+![Go](https://github.com/ylogx/gophrase/workflows/Go/badge.svg)
 [![snap gophrase](https://snapcraft.io//gophrase/badge.svg)](https://snapcraft.io/gophrase)
 [![snap gophrase](https://snapcraft.io//gophrase/trending.svg?name=0)](https://snapcraft.io/gophrase)
 
