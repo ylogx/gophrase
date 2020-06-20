@@ -1,5 +1,5 @@
 name: gophrase
-version: '1.0'
+version: '0.0.2'
 summary: CLI tool to generate easy to remember strong passwords.
 description: |
   GoPhrase suggests easy to remember yet strong passwords.
