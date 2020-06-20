@@ -49,6 +49,8 @@ make install
 make build && install -pv gophrase /usr/local/bin
 ```
 
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/gophrase)
+
 [snap-product-page]: https://snapcraft.io/gophrase
 [usage-sshot]: https://i.imgur.com/o8WUS0o.png
 [xkcd-explained]: https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength
