@@ -1,0 +1,21 @@
+name: gophrase
+version: '1.0'
+summary: CLI tool to generate easy to remember strong passwords.
+description: |
+  GoPhrase suggests easy to remember yet strong passwords.
+
+confinement: devmode
+base: core18
+
+parts:
+  httplab:
+    plugin: go
+    go-importpath: github.com/ylogx/gophrase
+    source: https://github.com/ylogx/gophrase
+    source-type: git
+    build-packages:
+      - gcc
+
+apps:
+  gophrase:
+    command: bin/gophrase
