@@ -9,6 +9,7 @@ gophrase
 *.amd64
 *.amd64.exe
 binaries/
+*.snap
 
 # Binaries for programs and plugins
 *.exe
