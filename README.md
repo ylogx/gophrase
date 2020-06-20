@@ -2,6 +2,8 @@ GoPhrase
 ========
 
 [![Build Status](https://travis-ci.com/ylogx/gophrase.svg?branch=master)](https://travis-ci.com/ylogx/gophrase)
+[![snap gophrase](https://snapcraft.io//gophrase/badge.svg)](https://snapcraft.io/gophrase)
+[![snap gophrase](https://snapcraft.io//gophrase/trending.svg?name=0)](https://snapcraft.io/gophrase)
 
 A random passphrase generator.
 
@@ -22,6 +24,13 @@ See [xkcd explained][xkcd-explained] for more details
 
 ### Installation
 
+##### Using Snap
+The tool is available via the [Snap Store][snap-product-page].
+
+```bash
+snap install gophrase
+```
+
 ##### Pre-built Binaries
 Download binaries from release page and copy in `/usr/local/bin`
 
@@ -40,5 +49,6 @@ make install
 make build && install -pv gophrase /usr/local/bin
 ```
 
+[snap-product-page]: https://snapcraft.io/gophrase
 [usage-sshot]: https://i.imgur.com/o8WUS0o.png
 [xkcd-explained]: https://www.explainxkcd.com/wiki/index.php/936:_Password_Strength
