@@ -16,7 +16,7 @@ setup_repo:
 
 build_binaries:
 	set -eux \
-		&& export BUILD_NUMBER='v0.0.1' \
+		&& export BUILD_NUMBER='v0.0.2' \
 		&& export DEPLOY_FILENAME='cmd/gophrase.go' \
 		&& export applicationName='gophrase'  \
 		&& echo "Building the Linux x64 binary" \
