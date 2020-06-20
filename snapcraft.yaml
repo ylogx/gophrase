@@ -4,7 +4,7 @@ summary: CLI tool to generate easy to remember strong passwords.
 description: |
   GoPhrase suggests easy to remember yet strong passwords.
 
-confinement: devmode
+#confinement: devmode
 base: core18
 
 parts:
