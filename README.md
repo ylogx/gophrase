@@ -1,7 +1,7 @@
 GoPhrase
 ========
 
-![Go](https://github.com/ylogx/gophrase/workflows/Go/badge.svg)
+[![Go](https://github.com/ylogx/gophrase/workflows/Go/badge.svg)](https://github.com/ylogx/gophrase/actions)
 [![snap gophrase](https://snapcraft.io//gophrase/badge.svg)](https://snapcraft.io/gophrase)
 [![snap gophrase](https://snapcraft.io//gophrase/trending.svg?name=0)](https://snapcraft.io/gophrase)
 
