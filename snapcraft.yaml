@@ -8,14 +8,17 @@ confinement: devmode
 base: core18
 
 parts:
-  httplab:
+  gophrase:
     plugin: go
-    go-importpath: github.com/ylogx/gophrase
+    #go-importpath: cmd/gophrase.go
+    #source: https://github.com/ylogx/gophrase.git
     source: https://github.com/ylogx/gophrase
     source-type: git
+    #go-importpath: .
+    #source: .
     build-packages:
       - gcc
 
 apps:
   gophrase:
-    command: bin/gophrase
+    command: cmd
